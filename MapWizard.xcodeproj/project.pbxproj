@@ -46,6 +46,8 @@
 		491E73392C1FAEC10092114B = {
 			isa = PBXGroup;
 			children = (
+				490B403E2C20D072001F988F /* README.md */,
+				490B403F2C20D39F001F988F /* screenshot.png */,
 				491E73442C1FAEC10092114B /* MapWizard */,
 				491E73432C1FAEC10092114B /* Products */,
 			);
@@ -71,8 +73,6 @@
 				491E734B2C1FAEC20092114B /* Assets.xcassets */,
 				491E73502C1FAEC20092114B /* MapWizard.entitlements */,
 				491E734D2C1FAEC20092114B /* Preview Content */,
-				490B403E2C20D072001F988F /* README.md */,
-				490B403F2C20D39F001F988F /* screenshot.png */,
 			);
 			path = MapWizard;
 			sourceTree = "<group>";
