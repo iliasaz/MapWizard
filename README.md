@@ -8,7 +8,7 @@ As an example, you can use (https://dataverse.harvard.edu/dataset.xhtml?persiste
 
 Here I intentionally modified some column names so that they're different. And yet the tool can identify and color code the columns as mapping candidates. Some mappings are false positives as their data is not distinct enough.
 
-![alt text](https://github.com/iliasaz/MapWizard/blob/main/MapWizard/screenshot.png?raw=true)
+![alt text](https://github.com/iliasaz/MapWizard/blob/main/screenshot.png?raw=true)
 
 The tool uses Apple's [NLEmbedding API](https://developer.apple.com/documentation/naturallanguage/nlembedding)
 
