@@ -18,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490B403E2C20D072001F988F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		490B403F2C20D39F001F988F /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		491E73422C1FAEC10092114B /* MapWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491E73452C1FAEC10092114B /* MapWizardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWizardApp.swift; sourceTree = "<group>"; };
 		491E73472C1FAEC10092114B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,8 @@
 				491E734B2C1FAEC20092114B /* Assets.xcassets */,
 				491E73502C1FAEC20092114B /* MapWizard.entitlements */,
 				491E734D2C1FAEC20092114B /* Preview Content */,
+				490B403E2C20D072001F988F /* README.md */,
+				490B403F2C20D39F001F988F /* screenshot.png */,
 			);
 			path = MapWizard;
 			sourceTree = "<group>";

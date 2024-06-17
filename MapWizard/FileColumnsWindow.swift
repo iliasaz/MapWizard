@@ -56,7 +56,7 @@ struct FileColumnsWindow: View {
                 Button(action: {
                     Task { await fileViewModel.computeEmbeddings() }
                 }) {
-                    Text("Compute Embeddings")
+                    Text("Map it!")
                 }
                 .padding()
                 .disabled(fileViewModel.isComputing) // Disable button while computing
