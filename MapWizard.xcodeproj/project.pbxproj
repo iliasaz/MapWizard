@@ -12,6 +12,9 @@
 		491E734A2C1FAEC10092114B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73492C1FAEC10092114B /* Item.swift */; };
 		491E734C2C1FAEC20092114B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491E734B2C1FAEC20092114B /* Assets.xcassets */; };
 		491E734F2C1FAEC20092114B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491E734E2C1FAEC20092114B /* Preview Assets.xcassets */; };
+		491E73572C1FB0430092114B /* FileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73562C1FB0430092114B /* FileViewModel.swift */; };
+		491E73592C1FB3DD0092114B /* FileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73582C1FB3DD0092114B /* FileContentView.swift */; };
+		491E735B2C1FCAC00092114B /* FileColumnsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E735A2C1FCAC00092114B /* FileColumnsWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		491E734B2C1FAEC20092114B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		491E734E2C1FAEC20092114B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		491E73502C1FAEC20092114B /* MapWizard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapWizard.entitlements; sourceTree = "<group>"; };
+		491E73562C1FB0430092114B /* FileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewModel.swift; sourceTree = "<group>"; };
+		491E73582C1FB3DD0092114B /* FileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentView.swift; sourceTree = "<group>"; };
+		491E735A2C1FCAC00092114B /* FileColumnsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileColumnsWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 			children = (
 				491E73452C1FAEC10092114B /* MapWizardApp.swift */,
 				491E73472C1FAEC10092114B /* ContentView.swift */,
+				491E735A2C1FCAC00092114B /* FileColumnsWindow.swift */,
+				491E73562C1FB0430092114B /* FileViewModel.swift */,
+				491E73582C1FB3DD0092114B /* FileContentView.swift */,
 				491E73492C1FAEC10092114B /* Item.swift */,
 				491E734B2C1FAEC20092114B /* Assets.xcassets */,
 				491E73502C1FAEC20092114B /* MapWizard.entitlements */,
@@ -143,7 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				491E73482C1FAEC10092114B /* ContentView.swift in Sources */,
+				491E735B2C1FCAC00092114B /* FileColumnsWindow.swift in Sources */,
 				491E734A2C1FAEC10092114B /* Item.swift in Sources */,
+				491E73592C1FB3DD0092114B /* FileContentView.swift in Sources */,
+				491E73572C1FB0430092114B /* FileViewModel.swift in Sources */,
 				491E73462C1FAEC10092114B /* MapWizardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +304,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iliasazonov.MapWizard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -320,6 +334,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iliasazonov.MapWizard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
