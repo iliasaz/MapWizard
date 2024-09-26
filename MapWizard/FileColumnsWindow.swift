@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct FileColumnsWindow: View {
-    @EnvironmentObject var fileViewModel: FileViewModel
+    @Environment(FileViewModel.self) var fileViewModel: FileViewModel
 
     let columns = [
         GridItem(.flexible(), spacing: 20),

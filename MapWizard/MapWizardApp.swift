@@ -10,32 +10,34 @@ import SwiftData
 
 @main
 struct MapWizardApp: App {
-    @StateObject private var fileViewModel = FileViewModel()
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    @State private var appViewModel = AppViewModel.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(fileViewModel)
+                .environment(appViewModel.fileViewModel)
         }
-        .modelContainer(sharedModelContainer)
 
         // Define a new window for displaying file columns
-        Window("File Columns", id: "file-columns") {
-            FileColumnsWindow()
-                .environmentObject(fileViewModel)
+        Window("ERD", id: "erd") {
+            WizardView(viewModel: appViewModel.erdViewModel)
         }
-        .defaultSize(width: 400, height: 300)
+        .defaultSize(width: 800, height: 1000)
+    }
+}
+
+class AppViewModel: ObservableObject {
+    @Published var fileViewModel: FileViewModel
+    @Published var erdViewModel: ERDViewModel = .init(entities: [.previewCar, .previewFamily, .previewPerson])
+
+    private init () {
+        self.erdViewModel = .init(entities: [])
+        self.fileViewModel = FileViewModel(appViewModel: nil)
+    }
+
+    static var shared: AppViewModel {
+        let app = AppViewModel.init()
+        app.fileViewModel.appViewModel = app
+        app.erdViewModel.appViewModel = app
+        return app
     }
 }

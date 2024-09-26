@@ -9,12 +9,20 @@
 /* Begin PBXBuildFile section */
 		491E73462C1FAEC10092114B /* MapWizardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73452C1FAEC10092114B /* MapWizardApp.swift */; };
 		491E73482C1FAEC10092114B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73472C1FAEC10092114B /* ContentView.swift */; };
-		491E734A2C1FAEC10092114B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73492C1FAEC10092114B /* Item.swift */; };
 		491E734C2C1FAEC20092114B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491E734B2C1FAEC20092114B /* Assets.xcassets */; };
 		491E734F2C1FAEC20092114B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491E734E2C1FAEC20092114B /* Preview Assets.xcassets */; };
 		491E73572C1FB0430092114B /* FileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73562C1FB0430092114B /* FileViewModel.swift */; };
 		491E73592C1FB3DD0092114B /* FileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E73582C1FB3DD0092114B /* FileContentView.swift */; };
 		491E735B2C1FCAC00092114B /* FileColumnsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E735A2C1FCAC00092114B /* FileColumnsWindow.swift */; };
+		4941608A2C9CD6660083259E /* EntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160872C9CD6660083259E /* EntityView.swift */; };
+		4941608B2C9CD6660083259E /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160882C9CD6660083259E /* LayoutConstants.swift */; };
+		4941608E2C9CD6B20083259E /* ERDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941608D2C9CD6B20083259E /* ERDView.swift */; };
+		494160902C9CD6FC0083259E /* ERDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941608F2C9CD6FC0083259E /* ERDViewModel.swift */; };
+		494160922C9F88060083259E /* SourceEntitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160912C9F88060083259E /* SourceEntitiesView.swift */; };
+		494160942C9F949F0083259E /* TargetEntitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160932C9F949F0083259E /* TargetEntitiesView.swift */; };
+		494160962C9F9D4F0083259E /* WizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160952C9F9D4F0083259E /* WizardView.swift */; };
+		49BAFE6F2CA2460500A8BA6C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAFE6E2CA2460500A8BA6C /* MapView.swift */; };
+		49BAFE712CA2485500A8BA6C /* RecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAFE702CA2485500A8BA6C /* RecommendationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +31,21 @@
 		491E73422C1FAEC10092114B /* MapWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491E73452C1FAEC10092114B /* MapWizardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWizardApp.swift; sourceTree = "<group>"; };
 		491E73472C1FAEC10092114B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		491E73492C1FAEC10092114B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		491E734B2C1FAEC20092114B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		491E734E2C1FAEC20092114B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		491E73502C1FAEC20092114B /* MapWizard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapWizard.entitlements; sourceTree = "<group>"; };
 		491E73562C1FB0430092114B /* FileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewModel.swift; sourceTree = "<group>"; };
 		491E73582C1FB3DD0092114B /* FileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentView.swift; sourceTree = "<group>"; };
 		491E735A2C1FCAC00092114B /* FileColumnsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileColumnsWindow.swift; sourceTree = "<group>"; };
+		494160872C9CD6660083259E /* EntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityView.swift; sourceTree = "<group>"; };
+		494160882C9CD6660083259E /* LayoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
+		4941608D2C9CD6B20083259E /* ERDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERDView.swift; sourceTree = "<group>"; };
+		4941608F2C9CD6FC0083259E /* ERDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERDViewModel.swift; sourceTree = "<group>"; };
+		494160912C9F88060083259E /* SourceEntitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEntitiesView.swift; sourceTree = "<group>"; };
+		494160932C9F949F0083259E /* TargetEntitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEntitiesView.swift; sourceTree = "<group>"; };
+		494160952C9F9D4F0083259E /* WizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardView.swift; sourceTree = "<group>"; };
+		49BAFE6E2CA2460500A8BA6C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		49BAFE702CA2485500A8BA6C /* RecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +80,22 @@
 		491E73442C1FAEC10092114B /* MapWizard */ = {
 			isa = PBXGroup;
 			children = (
-				491E73452C1FAEC10092114B /* MapWizardApp.swift */,
 				491E73472C1FAEC10092114B /* ContentView.swift */,
+				4941608D2C9CD6B20083259E /* ERDView.swift */,
+				494160912C9F88060083259E /* SourceEntitiesView.swift */,
+				494160932C9F949F0083259E /* TargetEntitiesView.swift */,
+				4941608F2C9CD6FC0083259E /* ERDViewModel.swift */,
 				491E735A2C1FCAC00092114B /* FileColumnsWindow.swift */,
 				491E73562C1FB0430092114B /* FileViewModel.swift */,
 				491E73582C1FB3DD0092114B /* FileContentView.swift */,
-				491E73492C1FAEC10092114B /* Item.swift */,
 				491E734B2C1FAEC20092114B /* Assets.xcassets */,
+				49BAFE6E2CA2460500A8BA6C /* MapView.swift */,
+				49BAFE702CA2485500A8BA6C /* RecommendationsView.swift */,
 				491E73502C1FAEC20092114B /* MapWizard.entitlements */,
+				491E73452C1FAEC10092114B /* MapWizardApp.swift */,
+				494160872C9CD6660083259E /* EntityView.swift */,
+				494160882C9CD6660083259E /* LayoutConstants.swift */,
+				494160952C9F9D4F0083259E /* WizardView.swift */,
 				491E734D2C1FAEC20092114B /* Preview Content */,
 			);
 			path = MapWizard;
@@ -129,6 +153,8 @@
 				Base,
 			);
 			mainGroup = 491E73392C1FAEC10092114B;
+			packageReferences = (
+			);
 			productRefGroup = 491E73432C1FAEC10092114B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -157,10 +183,18 @@
 			files = (
 				491E73482C1FAEC10092114B /* ContentView.swift in Sources */,
 				491E735B2C1FCAC00092114B /* FileColumnsWindow.swift in Sources */,
-				491E734A2C1FAEC10092114B /* Item.swift in Sources */,
+				494160942C9F949F0083259E /* TargetEntitiesView.swift in Sources */,
+				494160962C9F9D4F0083259E /* WizardView.swift in Sources */,
 				491E73592C1FB3DD0092114B /* FileContentView.swift in Sources */,
+				4941608E2C9CD6B20083259E /* ERDView.swift in Sources */,
+				49BAFE712CA2485500A8BA6C /* RecommendationsView.swift in Sources */,
+				49BAFE6F2CA2460500A8BA6C /* MapView.swift in Sources */,
+				494160922C9F88060083259E /* SourceEntitiesView.swift in Sources */,
 				491E73572C1FB0430092114B /* FileViewModel.swift in Sources */,
 				491E73462C1FAEC10092114B /* MapWizardApp.swift in Sources */,
+				4941608A2C9CD6660083259E /* EntityView.swift in Sources */,
+				494160902C9CD6FC0083259E /* ERDViewModel.swift in Sources */,
+				4941608B2C9CD6660083259E /* LayoutConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +254,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -277,7 +311,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -291,6 +325,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MapWizard/MapWizard.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -300,6 +335,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -321,6 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MapWizard/MapWizard.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -330,6 +367,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

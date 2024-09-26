@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject var fileViewModel: FileViewModel
+    @Environment(FileViewModel.self) private var fileViewModel: FileViewModel
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {
+        @Bindable var fileViewModel = fileViewModel
         NavigationSplitView {
             List(fileViewModel.files, selection: $fileViewModel.selectedFile) { file in
                 Text(file.fileName)
@@ -22,18 +22,21 @@ struct ContentView: View {
             .navigationTitle("Files")
             .toolbar {
                 ToolbarItem {
-                    Button(action: { fileViewModel.openFiles() }) {
+                    Button(action: {
+                        fileViewModel.openFiles()
+                        Task { await fileViewModel.computeEmbeddings() }
+                    }) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
                 ToolbarItem {
                     Button(action: showDiagram) {
-                        Label("Diagram", systemImage: "brain.head.profile")
+                        Label("Diagram", systemImage: "wand.and.rays")
                     }
                 }
             }
         } detail: {
-            if let selectedFile = fileViewModel.selectedFile {
+            if let _ = fileViewModel.selectedFile {
                 FileContentView(fileViewModel: fileViewModel)
             } else {
                 Text("Select a file to view its contents.")
@@ -45,58 +48,13 @@ struct ContentView: View {
     }
 
     func showDiagram() {
-        openWindow(id: "file-columns")
+        fileViewModel.appViewModel?.erdViewModel.populate(from: fileViewModel.files)
+        openWindow(id: "erd")
     }
 }
-
-//struct ContentView: View {
-//    @Environment(\.modelContext) private var modelContext
-//    @Query private var items: [Item]
-//
-//    var body: some View {
-//        NavigationSplitView {
-//            List {
-//                ForEach(items) { item in
-//                    NavigationLink {
-//                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-//                    } label: {
-//                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-//                    }
-//                }
-//                .onDelete(perform: deleteItems)
-//            }
-//            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-//            .toolbar {
-//                ToolbarItem {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
-//        } detail: {
-//            Text("Select an item")
-//        }
-//    }
-//
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Item(timestamp: Date())
-//            modelContext.insert(newItem)
-//        }
-//    }
-//
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            for index in offsets {
-//                modelContext.delete(items[index])
-//            }
-//        }
-//    }
-//}
 
 
 #Preview {
     ContentView()
-        .environmentObject(FileViewModel())
-        .modelContainer(for: Item.self, inMemory: true)
+        .environment(FileViewModel())
 }

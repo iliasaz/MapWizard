@@ -9,7 +9,7 @@ import SwiftUI
 import AppKit
 
 struct FileDataTableView: NSViewRepresentable {
-    @ObservedObject var fileViewModel: FileViewModel
+    var fileViewModel: FileViewModel
 
     class Coordinator: NSObject, NSTableViewDelegate, NSTableViewDataSource {
         var parent: FileDataTableView
@@ -55,8 +55,6 @@ struct FileDataTableView: NSViewRepresentable {
         tableView.delegate = context.coordinator
         tableView.dataSource = context.coordinator
 
-        updateColumns(in: tableView)
-
         tableView.headerView = NSTableHeaderView()
         scrollView.documentView = tableView
         scrollView.hasVerticalScroller = true
@@ -67,7 +65,6 @@ struct FileDataTableView: NSViewRepresentable {
     func updateNSView(_ nsView: NSScrollView, context: Context) {
         guard let tableView = nsView.documentView as? NSTableView else { return }
         updateColumns(in: tableView)
-        tableView.reloadData()
     }
 
     private func updateColumns(in tableView: NSTableView) {
@@ -84,11 +81,11 @@ struct FileDataTableView: NSViewRepresentable {
 
 
 struct FileContentView: View {
-    @ObservedObject var fileViewModel: FileViewModel
+    var fileViewModel: FileViewModel
 
     var body: some View {
         VStack {
-            if let selectedFile = fileViewModel.selectedFile {
+            if let _ = fileViewModel.selectedFile {
                 FileDataTableView(fileViewModel: fileViewModel)
                     .frame(minWidth: 800, minHeight: 600)
                     .padding()
@@ -100,21 +97,3 @@ struct FileContentView: View {
         }
     }
 }
-
-//struct FileContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let sampleCSVData = """
-//        Name,Age,Occupation
-//        Alice,30,Engineer
-//        Bob,25,Designer
-//        Charlie,35,Manager
-//        """
-//        let sampleURL = URL(fileURLWithPath: "/path/to/sample.csv")
-//        try? sampleCSVData.write(to: sampleURL, atomically: true, encoding: .utf8)
-//        let sampleFileData = try! FileData(url: sampleURL)
-//        let fileViewModel = FileViewModel()
-//        fileViewModel.files = [sampleFileData]
-//        fileViewModel.selectedFile = sampleFileData
-//        return FileContentView(fileViewModel: fileViewModel)
-//    }
-//}
