@@ -21,8 +21,9 @@
 		494160922C9F88060083259E /* SourceEntitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160912C9F88060083259E /* SourceEntitiesView.swift */; };
 		494160942C9F949F0083259E /* TargetEntitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160932C9F949F0083259E /* TargetEntitiesView.swift */; };
 		494160962C9F9D4F0083259E /* WizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494160952C9F9D4F0083259E /* WizardView.swift */; };
+		494475F12CA6276E00AF4570 /* JoinMappingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494475F02CA6276E00AF4570 /* JoinMappingView.swift */; };
 		49BAFE6F2CA2460500A8BA6C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAFE6E2CA2460500A8BA6C /* MapView.swift */; };
-		49BAFE712CA2485500A8BA6C /* RecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAFE702CA2485500A8BA6C /* RecommendationsView.swift */; };
+		49BAFE712CA2485500A8BA6C /* ColumnMappingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAFE702CA2485500A8BA6C /* ColumnMappingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +45,9 @@
 		494160912C9F88060083259E /* SourceEntitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEntitiesView.swift; sourceTree = "<group>"; };
 		494160932C9F949F0083259E /* TargetEntitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEntitiesView.swift; sourceTree = "<group>"; };
 		494160952C9F9D4F0083259E /* WizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardView.swift; sourceTree = "<group>"; };
+		494475F02CA6276E00AF4570 /* JoinMappingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMappingView.swift; sourceTree = "<group>"; };
 		49BAFE6E2CA2460500A8BA6C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		49BAFE702CA2485500A8BA6C /* RecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsView.swift; sourceTree = "<group>"; };
+		49BAFE702CA2485500A8BA6C /* ColumnMappingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnMappingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,8 @@
 				491E73582C1FB3DD0092114B /* FileContentView.swift */,
 				491E734B2C1FAEC20092114B /* Assets.xcassets */,
 				49BAFE6E2CA2460500A8BA6C /* MapView.swift */,
-				49BAFE702CA2485500A8BA6C /* RecommendationsView.swift */,
+				49BAFE702CA2485500A8BA6C /* ColumnMappingView.swift */,
+				494475F02CA6276E00AF4570 /* JoinMappingView.swift */,
 				491E73502C1FAEC20092114B /* MapWizard.entitlements */,
 				491E73452C1FAEC10092114B /* MapWizardApp.swift */,
 				494160872C9CD6660083259E /* EntityView.swift */,
@@ -187,10 +190,11 @@
 				494160962C9F9D4F0083259E /* WizardView.swift in Sources */,
 				491E73592C1FB3DD0092114B /* FileContentView.swift in Sources */,
 				4941608E2C9CD6B20083259E /* ERDView.swift in Sources */,
-				49BAFE712CA2485500A8BA6C /* RecommendationsView.swift in Sources */,
+				49BAFE712CA2485500A8BA6C /* ColumnMappingView.swift in Sources */,
 				49BAFE6F2CA2460500A8BA6C /* MapView.swift in Sources */,
 				494160922C9F88060083259E /* SourceEntitiesView.swift in Sources */,
 				491E73572C1FB0430092114B /* FileViewModel.swift in Sources */,
+				494475F12CA6276E00AF4570 /* JoinMappingView.swift in Sources */,
 				491E73462C1FAEC10092114B /* MapWizardApp.swift in Sources */,
 				4941608A2C9CD6660083259E /* EntityView.swift in Sources */,
 				494160902C9CD6FC0083259E /* ERDViewModel.swift in Sources */,

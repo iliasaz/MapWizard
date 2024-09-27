@@ -12,22 +12,27 @@ struct MapView: View {
     @Binding var path: NavigationPath
 
     var body: some View {
-        VStack {
-            Button {
-                Task {
-                    await viewModel.generateRecommendations()
-                }
+        VStack(alignment: .leading, spacing: 10) {
+            Section("Column Mappings") {
+                ColumnMappingView(erdViewModel: viewModel)
+                    .frame(minWidth: 100, maxWidth: .infinity, minHeight: 100, maxHeight: 600)
             }
-            label: { Text("Get Recommendations") }
-
-            RecommendationsView(erdViewModel: viewModel)
+            Section("Join Mappings") {
+                JoinMappingView(erdViewModel: viewModel)
+                    .frame(minWidth: 100, maxWidth: .infinity, minHeight: 50, maxHeight: 200)
+            }
+            Spacer()
         }
         .padding()
         .navigationTitle("Mapping Recommendations")
+        .task {
+            await viewModel.generateColumnMappings()
+            await viewModel.generateJoinMappings()
+        }
     }
 }
 
 #Preview {
     MapView(viewModel: ERDViewModel.preview, path: .constant(NavigationPath.init()))
-        .frame(width: 800, height: 600)
+        .frame(width: 800, height: 800)
 }

@@ -14,11 +14,11 @@ class ERDViewModel: ObservableObject {
 
     // Flag to ensure initial arrangement happens only once
     private var isArranged = false
-//    private var graphBuilder: GraphBuilder
 
     weak var appViewModel: AppViewModel?
 
-    @Published var recommendations = [Recommendation]()
+    @Published var columnMapping = [Recommendation]()
+    @Published var joinMapping = [Recommendation]()
 
     func updateView(){
         self.objectWillChange.send()
@@ -27,13 +27,12 @@ class ERDViewModel: ObservableObject {
     init(entities: [Entity], appViewModel: AppViewModel? = nil) {
         self.entities = entities
         self.appViewModel = appViewModel
-//        self.graphBuilder = GraphBuilder()
     }
     
     private init () {
         self.entities = [.previewPerson, .previewCar, .previewFamily]
-//        self.graphBuilder = GraphBuilder()
-        self.recommendations = Recommendation.mock()
+        self.columnMapping = Recommendation.columnMappingMock()
+        self.joinMapping = Recommendation.joinMappingMock()
     }
     
     func populate(from files: [FileData]) {
@@ -101,8 +100,6 @@ class ERDViewModel: ObservableObject {
     }
     
     func isValidSelection(of selectionType: EntityType) -> Bool {
-        print("selectionType: \(selectionType)")
-        print("entities: \(entities.map(\.entityType))")
         switch selectionType {
             case .none: return true
             case .source: return entities.count(where: {$0.entityType == .source}) > 0
@@ -110,20 +107,16 @@ class ERDViewModel: ObservableObject {
         }
     }
 
-    func generateRecommendations() async {
+    func generateColumnMappings() async {
         var localRecommendations = [Recommendation]()
-        let tgt = entities.filter({$0.entityType == .target})[0]
-        for src in entities.filter({$0.entityType == .source}) {
-            for sourceAttribute in src.attributes {
-                for targetAttribute in tgt.attributes {
+        guard let tgt = entities.filter({$0.entityType == .target}).first else { return }
+        for targetAttribute in tgt.attributes {
+            for src in entities.filter({$0.entityType == .source}) {
+                for sourceAttribute in src.attributes {
                     let sourceEmbedding = src.embeddings[sourceAttribute]
                     let targetEmbedding = tgt.embeddings[targetAttribute]
                     if let similarity = cosineSimilarity(sourceEmbedding, targetEmbedding) {
                         if similarity >= recommendationThreshold {
-//                            graphBuilder.addNode("\(src.name).\(sourceAttribute)")
-//                            graphBuilder.addNode("\(tgt.name).\(targetAttribute)")
-//                            graphBuilder.addEdge(from: "\(src.name).\(sourceAttribute)", to: "\(tgt.name).\(targetAttribute)", value: similarity)
-
                             localRecommendations.append(
                                 Recommendation(
                                     sourceName: src.name,
@@ -133,26 +126,83 @@ class ERDViewModel: ObservableObject {
                                     score: similarity
                                 )
                             )
-                            logger.debug("\(src.name).\(sourceAttribute) and \(tgt.name).\(targetAttribute) look similar: \(similarity)")
                         }
                     }
                 }
             }
         }
 
-        await MainActor.run { [localRecommendations] in
-            print("local recommendations: \(localRecommendations.count)")
-            recommendations = localRecommendations
+        // sort the recommendations
+        let localRecommendationsGrouped = Dictionary(grouping: localRecommendations, by: {$0.targetAttribute}).mapValues { targetRecommendations in
+            targetRecommendations.sorted(by: {$0.score > $1.score})
+                .enumerated()
+                .map { (idx, item) in
+                    if idx == 0 {
+                        var newEntity = item
+                        newEntity.isSelected = true
+                        return newEntity
+                    } else {
+                        return item
+                    }
+                }
+        }
+            .sorted(by: {$0.key.lowercased() > $1.key.lowercased()})
+            .flatMap { $0.value }
+
+        await MainActor.run { [localRecommendationsGrouped] in
+            columnMapping = localRecommendationsGrouped
             updateView()
         }
     }
 
-    // returns a graphviz object to MapViewGraphViz view
-//    func getGraph() -> GraphBuilder {
-//        print("node count: \(graphBuilder.dot.nodes.count)")
-//        print("edge count: \(graphBuilder.dot.edges.count)")
-//        return graphBuilder
-//    }
+    func generateJoinMappings() async {
+        var localRecommendations = [Recommendation]()
+        for (srcIdx1, src1) in entities.filter({$0.entityType == .source}).sorted(by: {$0.name < $1.name}).enumerated() {
+            for (srcIdx2, src2) in entities.filter({$0.entityType == .source}).sorted(by: {$0.name < $1.name}).enumerated() where srcIdx2 > srcIdx1 {
+                for sourceAttribute1 in src1.attributes {
+                    for sourceAttribute2 in src2.attributes {
+                        let sourceEmbedding1 = src1.embeddings[sourceAttribute1]
+                        let sourceEmbedding2 = src2.embeddings[sourceAttribute2]
+                        if let similarity = cosineSimilarity(sourceEmbedding1, sourceEmbedding2) {
+                            if similarity >= recommendationThreshold {
+                                localRecommendations.append(
+                                    Recommendation(
+                                        sourceName: src2.name,
+                                        targetName: src1.name,
+                                        sourceAttribute: sourceAttribute2,
+                                        targetAttribute: sourceAttribute1,
+                                        score: similarity
+                                    )
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // sort the recommendations
+        let localRecommendationsGrouped = Dictionary(grouping: localRecommendations, by: {$0.targetAttribute}).mapValues { targetRecommendations in
+            targetRecommendations.sorted(by: {$0.score > $1.score})
+                .enumerated()
+                .map { (idx, item) in
+                    if idx == 0 {
+                        var newEntity = item
+                        newEntity.isSelected = true
+                        return newEntity
+                    } else {
+                        return item
+                    }
+                }
+        }
+            .sorted(by: {$0.key.lowercased() > $1.key.lowercased()})
+            .flatMap { $0.value }
+
+        await MainActor.run { [localRecommendationsGrouped] in
+            joinMapping = localRecommendationsGrouped
+            updateView()
+        }
+    }
 }
 
 
@@ -165,19 +215,4 @@ struct Recommendation: Identifiable {
     let targetAttribute: String
     let score: Double
     var isSelected: Bool = false
-
-    static func mock() -> [Recommendation] {
-        var results = [Recommendation]()
-        for i in 0..<10 {
-            let r = Recommendation(
-                    sourceName: "Source \(i)",
-                    targetName: "Target \(i)",
-                    sourceAttribute: "Source Attribute \(i)",
-                    targetAttribute: "Target Attribute \(i)",
-                    score: Double.random(in: 0..<100)
-                )
-            results.append(r)
-        }
-        return results
-    }
 }

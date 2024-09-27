@@ -14,16 +14,16 @@ struct SourceEntitiesView: View {
     @State private var isShowingInvalidSelectionAlert = false
 
     private let columns = [
-        GridItem(.flexible(), spacing: 20),
-        GridItem(.flexible(), spacing: 20),
-        GridItem(.flexible(), spacing: 20)
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10)
     ]
 
     var body: some View {
         VStack {
             Text("Select Source Entities")
             ScrollView {
-                LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
+                LazyVGrid(columns: columns, alignment: .leading, spacing: 10) {
                     ForEach(
                         $viewModel.entities.filter {
                             $0.entityType == .none || $0.entityType == .source },

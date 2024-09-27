@@ -122,6 +122,7 @@ struct EntityView: View {
                 }
                 .padding(10) // Reduce padding for a more compact look
             }
+            .frame(minWidth: 50, maxWidth: .infinity, alignment: .leading)
 
             Divider()
 
@@ -134,11 +135,14 @@ struct EntityView: View {
                                 Text("Select")
                             }
                     }
+                    .buttonStyle(.borderedProminent)
+                    .tint(entity.isSelected ? Color.green : nil)
                     Spacer()
                 }
             }
             .padding()
         }
+        .background(Color.init(nsColor: NSColor.controlBackgroundColor))
         .frame(
             minWidth: LayoutConstants.entityWidth,
             maxWidth: LayoutConstants.entityWidth,

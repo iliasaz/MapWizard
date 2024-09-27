@@ -19,6 +19,7 @@ struct ContentView: View {
                 Text(file.fileName)
                     .tag(file)
             }
+
             .navigationTitle("Files")
             .toolbar {
                 ToolbarItem {
